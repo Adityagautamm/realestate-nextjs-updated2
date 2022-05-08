@@ -13,7 +13,7 @@ import { filterData, getFilterValues } from "../utils/filterData";
 
 export const SearchBar = () => {
   const [filters] = useState(filterData);
-  const [searchTerm, setSearchTerm] = useState("bla bla");
+  const [searchTerm, setSearchTerm] = useState('');
   const [locationData, setLocationData] = useState();
   const [showLocations, setShowLocations] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -62,7 +62,7 @@ export const SearchBar = () => {
       {console.log(searchTerm)}
       <Box width='45%' height='18%' backgroundColor={"gray.200"} borderRadius='25px' marginLeft='25%' marginTop='8%'>
         <Box>
-          <Input width='65%' height='8' marginLeft='5%' marginTop='5%' textAlign='center' fontWeight={1} fontSize={18} background='gray.100' color='tomato' variant='outline' placeholder="Looking For Properties" _placeholder={{ color: 'inherit' }} padding="10px" onFocus={(e) => e.target.placeholder = ''}
+          <Input width='65%' height='8' marginLeft='5%' marginTop='5%' value={searchTerm} textAlign='center' fontWeight={1} fontSize={18} background='gray.100' color='tomato' variant='outline' placeholder="Looking For Properties" _placeholder={{ color: 'inherit' }} padding="10px" onFocus={(e) => e.target.placeholder = ''}
             onBlur={(e) => e.target.placeholder = 'Looking For Properties'}
             onChange={(e) => showLocationSetter(e.target.value)} />
 
@@ -73,12 +73,10 @@ export const SearchBar = () => {
         {showLocations &&
           <Box height="100px" >
             {locationData?.map((location) => (
-              <Flex key={location.id} flexDirection='column' border='none' height='30px' width='65%' marginLeft='5%' marginTop='-1%' overflow='visible' textAlign='center' fontWeight={1} fontSize={18} background='gray.100' color='tomato'
-                onClick={() => {
-                  searchProperties({
-                    locationExternalIDs: location.externalID,
-                  });
-
+              <Flex key={location.id} flexDirection='column' cursor='pointer' border='none' height='30px' width='65%' marginLeft='5%' marginTop='-1%' overflow='visible' textAlign='center' fontWeight={1} fontSize={18} background='gray.100' color='tomato'
+                onClick={(e) => {
+                  setShowLocations(false);
+                  setSearchTerm(location.name)
                 }}
               >
 
