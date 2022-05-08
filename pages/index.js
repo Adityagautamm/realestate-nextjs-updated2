@@ -6,19 +6,29 @@ import Property from "../components/Property";
 import rome from "../assets/images/rome.jpg"
 import { BiSearchAlt2 } from 'react-icons/bi';
 
-
 export const SearchBar = () => {
 
+
   return (
-    <Box justifyContent="center" backgroundImage="\houseAnimi.jpg" height="450px" width="100%" backgroundSize="97%" backgroundRepeat="no-repeat" backgroundAttachment="fixed" backgroundPosition="center"  >
-      <Box >
-        <Input width='50%' height='8' marginLeft='25%' marginTop='8%' textAlign='center' background='gray.100' color='tomato' variant='outline' placeholder="Looking For Properties" _placeholder={{ color: 'inherit' }} padding="10px" onFocus={(e) => e.target.placeholder = ''}
-          onBlur={(e) => e.target.placeholder = 'Looking For Properties'} />
-        <Button width='8%' height='8' marginTop='-0.5%' marginLeft='3%' colorScheme='orange' variant='outline' leftIcon={<BiSearchAlt2 />} background='gray.100'>
-          Search
-        </Button>
+    <Box justifyContent="center" overflow='hidden' backgroundImage="\houseAnimi.jpg" height="450px" width="100%" backgroundSize="97%" backgroundRepeat="no-repeat" backgroundAttachment="fixed" backgroundPosition="center"  >
+      <Box width='45%' height='18%' backgroundColor={"gray.200"} borderRadius='25px' marginLeft='25%' marginTop='8%'>
+        <Box>
+          <Input width='65%' height='8' marginLeft='5%' marginTop='5%' textAlign='center' fontWeight={1} fontSize={18} background='gray.100' color='tomato' variant='outline' placeholder="Looking For Properties" _placeholder={{ color: 'inherit' }} padding="10px" onFocus={(e) => e.target.placeholder = ''}
+            onBlur={(e) => e.target.placeholder = 'Looking For Properties'} />
+
+          <Button width='15%' height='8' marginTop='-1.2%' marginLeft='3%' color='gray.200' fontWeight={1} fontSize={18} variant='outline' leftIcon={<BiSearchAlt2 />} background='orange.400' >
+            Search
+          </Button>
+        </Box>
+
+        <Flex flexDirection='column' border='none' height='auto' width='65%' marginLeft='5%' marginTop='-1%' overflow='visible' textAlign='center' fontWeight={1} fontSize={18} background='gray.100' color='tomato'>
+          <Text>abc</Text>
+          <Text>abc</Text>
+          <Text>abc</Text>
+        </Flex>
       </Box>
-    </Box >
+    </Box>
+
   );
 }
 
