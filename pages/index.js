@@ -7,17 +7,33 @@ import Property from "../components/Property";
 import { BiSearchAlt2 } from 'react-icons/bi';
 import { useRouter } from "next/router";
 import { MdCancel } from "react-icons/md";
+import searchProperties from "../components/SearchFilters"
 
 import { filterData, getFilterValues } from "../utils/filterData";
 
 export const SearchBar = () => {
-
   const [filters] = useState(filterData);
   const [searchTerm, setSearchTerm] = useState("bla bla");
   const [locationData, setLocationData] = useState();
   const [showLocations, setShowLocations] = useState(false);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+
+  const searchProperties = (filterValues) => {
+    const path = router.pathname;
+    const { query } = router;
+
+    const values = getFilterValues(filterValues);
+
+    values.forEach((item) => {
+      if (item.value && filterValues?.[item.name]) {
+        query[item.name] = item.value;
+      }
+    });
+
+    router.push({ pathname: path, query: query });
+  };
+
 
   const showLocationSetter = (value) => {
     setSearchTerm(value)
@@ -57,7 +73,14 @@ export const SearchBar = () => {
         {showLocations &&
           <Box height="100px" >
             {locationData?.map((location) => (
-              <Flex key={location.id} flexDirection='column' border='none' height='30px' width='65%' marginLeft='5%' marginTop='-1%' overflow='visible' textAlign='center' fontWeight={1} fontSize={18} background='gray.100' color='tomato'>
+              <Flex key={location.id} flexDirection='column' border='none' height='30px' width='65%' marginLeft='5%' marginTop='-1%' overflow='visible' textAlign='center' fontWeight={1} fontSize={18} background='gray.100' color='tomato'
+                onClick={() => {
+                  searchProperties({
+                    locationExternalIDs: location.externalID,
+                  });
+
+                }}
+              >
 
                 <Text>{location.name}</Text>
 
@@ -66,7 +89,7 @@ export const SearchBar = () => {
           </Box>
         }
       </Box>
-    </Box>
+    </Box >
 
   );
 }
