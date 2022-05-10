@@ -46,7 +46,7 @@ export default function Home({ propertiesForSale, propertiesForRent }) {
   console.log(propertiesForRent)
   //console.log(marvelMovies);
   return (
-    <Box>
+    <Box bg="blackAlpha.100">
       <SearchBar />
       <Banner
         purpose='RENT A HOME'
