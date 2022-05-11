@@ -45,6 +45,12 @@ const Navbar = () => {
             Real Estate
           </MenuButton>
           <MenuList onMouseEnter={onOpen} onMouseLeave={onClose}>
+            <Link href="/real-estate-homepage" passHref>
+              <MenuItem textColor="gray.500" fontSize={20}>
+                Real Estate Home
+              </MenuItem>
+            </Link>
+            <MenuDivider />
             <MenuGroup
               title="Search By Purpose"
               fontSize={19}

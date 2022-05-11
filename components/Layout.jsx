@@ -9,6 +9,7 @@ export default function Layout({ children }) {
     <>
       <Head>
         <title>Bob's Portfolio</title>
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Box maxWidth="1280px" m="auto">
         <header>
