@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import {
   MenuGroup,
   MenuDivider,
@@ -17,7 +16,6 @@ import {
 import { FcMenu, FcHome, FcAbout } from "react-icons/fc";
 import { BsSearch } from "react-icons/bs";
 import { FiKey } from "react-icons/fi";
-import bobthebuilder from "../assets/images/bobthebuilder.png";
 
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -52,12 +50,12 @@ const Navbar = () => {
               fontSize={19}
               textColor="orange.300"
             >
-              <Link href="/search?purpose=for-rent" passHref>
+              <Link href="/re-search?purpose=for-rent" passHref>
                 <MenuItem textColor="gray.500" fontSize={20}>
                   Rent
                 </MenuItem>
               </Link>
-              <Link href="/search?purpose=for-sale" passHref>
+              <Link href="/re-search?purpose=for-sale" passHref>
                 <MenuItem textColor="gray.500" fontSize={20}>
                   Buy
                 </MenuItem>
@@ -69,17 +67,17 @@ const Navbar = () => {
               fontSize={19}
               textColor="orange.300"
             >
-              <Link href="/search?locationExternalIDs=5002" passHref>
+              <Link href="/re-search?locationExternalIDs=5002" passHref>
                 <MenuItem textColor="gray.500" fontSize={20}>
                   Dubai
                 </MenuItem>
               </Link>
-              <Link href="/search?locationExternalIDs=6020" passHref>
+              <Link href="/re-search?locationExternalIDs=6020" passHref>
                 <MenuItem textColor="gray.500" fontSize={20}>
                   Abu Dhabi
                 </MenuItem>
               </Link>
-              <Link href="/search?locationExternalIDs=5351" passHref>
+              <Link href="/re-search?locationExternalIDs=5351" passHref>
                 <MenuItem textColor="gray.500" fontSize={20}>
                   Sharjah
                 </MenuItem>
@@ -102,13 +100,13 @@ const Navbar = () => {
             <Link href="/" passHref>
               <MenuItem icon={<FcHome />}>Home</MenuItem>
             </Link>
-            <Link href="/search" passHref>
+            <Link href="/re-search" passHref>
               <MenuItem icon={<BsSearch />}>Search</MenuItem>
             </Link>
-            <Link href="/search?purpose=for-sale" passHref>
+            <Link href="/re-search?purpose=for-sale" passHref>
               <MenuItem icon={<FcAbout />}>Buy Property</MenuItem>
             </Link>
-            <Link href="/search?purpose=for-rent" passHref>
+            <Link href="/re-search?purpose=for-rent" passHref>
               <MenuItem icon={<FiKey />}>Rent Property</MenuItem>
             </Link>
           </MenuList>

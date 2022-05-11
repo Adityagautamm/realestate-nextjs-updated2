@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Flex, Box, Text, Button } from "@chakra-ui/react";
-import { baseUrl, fetchApi } from '../utils/fetchApi';
-import Property from "../components/Property";
-import SearchBar from "../components/SearchBar"
+import { baseUrl, fetchApi } from '../utils/reFetchApi';
+import Property from "../components/REProperty";
+import SearchBar from "../components/RESearchBar"
 
 
 
@@ -55,7 +55,7 @@ export default function Home({ propertiesForSale, propertiesForRent }) {
         desc1=' Explore from Apartments, builder floors, villas'
         desc2='and more'
         buttonText='Explore Renting'
-        linkName='/search?purpose=for-rent'
+        linkName='/re-search?purpose=for-rent'
         imageUrl='https://bayut-production.s3.eu-central-1.amazonaws.com/image/145426814/33973352624c48628e41f2ec460faba4' />
       <Flex flexWrap='wrap'>
         {propertiesForRent.map((property) => <Property property={property} key={property.id} />)}
@@ -67,7 +67,7 @@ export default function Home({ propertiesForSale, propertiesForRent }) {
         desc1=' Explore from Apartments, land, builder floors,'
         desc2=' villas and more'
         buttonText='Explore Buying'
-        linkName='/search?purpose=for-sale'
+        linkName='/re-search?purpose=for-sale'
         imageUrl='https://bayut-production.s3.eu-central-1.amazonaws.com/image/110993385/6a070e8e1bae4f7d8c1429bc303d2008' />
       <Flex flexWrap='wrap'>
         {propertiesForSale.map((property) => <Property property={property} key={property.id} />)}

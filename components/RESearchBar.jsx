@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import {
   Flex,
@@ -10,14 +9,10 @@ import {
   Spinner,
   Icon,
 } from "@chakra-ui/react";
-import { baseUrl, fetchApi } from "../utils/fetchApi";
-import Property from "../components/Property";
+import { baseUrl, fetchApi } from "../utils/reFetchApi";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { useRouter } from "next/router";
-import { MdCancel } from "react-icons/md";
-import noresult from "../assets/images/noresult.jpg";
-
-import { filterData, getFilterValues } from "../utils/filterData";
+import { filterData, getFilterValues } from "../utils/reFilterData";
 
 const SearchBar = () => {
   const [filters] = useState(filterData);
@@ -110,7 +105,7 @@ const SearchBar = () => {
               showLocationSetter(e.target.value);
             }}
           />
-          <Link href={`/search?locationExternalIDs=${locationId}`} passHref>
+          <Link href={`/re-search?locationExternalIDs=${locationId}`} passHref>
             <Button
               width="18%"
               height="8"
